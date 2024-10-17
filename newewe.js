@@ -18,12 +18,12 @@ var modifyResponse = (response) => {
         
         // Modify the 'max' field if it exists and the model is GPT-4o
         if (body.model === "gpt-4o" && body.hasOwnProperty("max")) {
-            body.max = 100; // Update the 'max' value to 100 requests
+            body.max = 50; // Update the 'max' value to 50 requests
         }
 
         // Optionally update other fields like 'remaining' if needed
         if (body.hasOwnProperty("remaining") && body.remaining === 0) {
-            body.remaining = 100; // Set remaining requests to 100
+            body.remaining = 50; // Set remaining requests to 50
         }
 
         // Modify resetTime if it exists to a future date (e.g., 30 days from now)
