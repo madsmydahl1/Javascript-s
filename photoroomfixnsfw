@@ -1,0 +1,17 @@
+// Surge 5 Script to modify PhotoRoom AI image generation responses
+const body = $response.body;
+
+// Parse the JSON response
+let json = JSON.parse(body);
+
+// Ensure the response contains an 'nsfw' field and modify it
+if (json && typeof json === "object") {
+  for (const key in json) {
+    if (json[key].nsfw === false) {
+      json[key].nsfw = true; // Modify the 'nsfw' field to true
+    }
+  }
+}
+
+// Return the modified JSON response
+$done({ body: JSON.stringify(json) });
